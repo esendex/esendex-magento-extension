@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<!--
+Copyright (C) 2015 Esendex Ltd.
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the Esendex Community License v1.0 as published by
+   the Esendex Ltd.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   Esendex Community Licence v1.0 for more details.
+
+   You should have received a copy of the Esendex Community Licence v1.0
+   along with this program.  If not, see <http://www.esendex.com/esendexcommunitylicence/>
+-->
+
+<config>
+    <sections>
+        <esendex_sms translate="label" module="esendex_sms">
+            <groups>
+                <mobile_sales_report translate="label">
+                    <label>Schedule Mobile Sales Report</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <time translate="label">
+                            <label>Cron Time</label>
+                            <frontend_type>time</frontend_type>
+                            <frontend_model>esendex_events/adminhtml_system_config_cronTime</frontend_model>
+                            <backend_model>esendex_events/adminhtml_system_config_backend_cronTime</backend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Sales Reports will be sent at this time each day.</comment>
+                        </time>
+                    </fields>
+                </mobile_sales_report>
+            </groups>
+        </esendex_sms>
+    </sections>
+</config>

@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+
+<!--
+Copyright (C) 2015 Esendex Ltd.
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the Esendex Community License v1.0 as published by
+   the Esendex Ltd.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   Esendex Community Licence v1.0 for more details.
+
+   You should have received a copy of the Esendex Community Licence v1.0
+   along with this program.  If not, see <http://www.esendex.com/esendexcommunitylicence/>
+-->
+
+<config>
+    <modules>
+        <Esendex_Sms>
+            <version>1.0.0</version>
+        </Esendex_Sms>
+    </modules>
+    <global>
+        <resources>
+            <esendex_sms_setup>
+                <setup>
+                    <module>Esendex_Sms</module>
+                    <class>Esendex_Sms_Model_Resource_Setup</class>
+                </setup>
+            </esendex_sms_setup>
+        </resources>
+        <blocks>
+            <esendex_sms>
+                <class>Esendex_Sms_Block</class>
+            </esendex_sms>
+        </blocks>
+        <helpers>
+            <esendex_sms>
+                <class>Esendex_Sms_Helper</class>
+            </esendex_sms>
+        </helpers>
+        <models>
+            <esendex_sms>
+                <class>Esendex_Sms_Model</class>
+                <resourceModel>esendex_sms_resource</resourceModel>
+            </esendex_sms>
+            <esendex_sms_resource>
+                <class>Esendex_Sms_Model_Resource</class>
+                <entities>
+                    <trigger>
+                        <table>esendex_sms_trigger</table>
+                    </trigger>
+                    <trigger_store>
+                        <table>esendex_sms_trigger_store</table>
+                    </trigger_store>
+                    <event>
+                        <table>esendex_sms_event</table>
+                    </event>
+                    <event_sample_message_template>
+                        <table>esendex_sms_event_sample_message_template</table>
+                    </event_sample_message_template>
+                </entities>
+            </esendex_sms_resource>
+        </models>
+        <events>
+            <resource_get_tablename>
+                <observers>
+                    <esendexSdkAutoloader>
+                        <class>Esendex_Sms_Model_AutoloaderObserver</class>
+                        <method>autoloadEsendexSdk</method>
+                    </esendexSdkAutoloader>
+                </observers>
+            </resource_get_tablename>
+
+            <!-- Event for when saving config -->
+            <admin_system_config_changed_section_esendex_sms>
+                <observers>
+                    <esendex_sms_config_save>
+                        <class>esendex_sms/accountObserver</class>
+                        <method>validateAccount</method>
+                    </esendex_sms_config_save>
+                </observers>
+            </admin_system_config_changed_section_esendex_sms>
+
+            <esendex_account_details_updated>
+                <observers>
+                    <esendex_account_details_updated>
+                        <class>esendex_sms/accountObserver</class>
+                        <method>rebuildAccountCache</method>
+                    </esendex_account_details_updated>
+                </observers>
+            </esendex_account_details_updated>
+
+            <esendex_account_reloaded>
+                <observers>
+                    <esendex_account_reloaded>
+                        <class>esendex_sms/accountObserver</class>
+                        <method>rebuildAccountCache</method>
+                    </esendex_account_reloaded>
+                </observers>
+            </esendex_account_reloaded>
+
+            <admin_session_user_login_success>
+                <observers>
+                    <refresh_esendex_account_cache_on_admin_login>
+                        <class>esendex_sms/accountObserver</class>
+                        <method>refreshAccountCache</method>
+                    </refresh_esendex_account_cache_on_admin_login>
+                </observers>
+            </admin_session_user_login_success>
+
+            <esendex_sms_messages_sent>
+                <observers>
+                    <update_esendex_account_remaning_messages>
+                        <class>esendex_sms/accountObserver</class>
+                        <method>updateRemainingMessages</method>
+                    </update_esendex_account_remaning_messages>
+                </observers>
+            </esendex_sms_messages_sent>
+        </events>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <esendex_sms>
+                    <file>esendex/sms.xml</file>
+                </esendex_sms>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Esendex_Sms>
+                    <files>
+                        <default>Esendex_Sms.csv</default>
+                    </files>
+                </Esendex_Sms>
+            </modules>
+        </translate>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Esendex_Sms before="Mage_Adminhtml">Esendex_Sms_Adminhtml</Esendex_Sms>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <default>
+        <esendex_sms>
+            <sms>
+                <debug_mode>0</debug_mode>
+                <send_sms>1</send_sms>
+                <warn_me>10</warn_me>
+            </sms>
+        </esendex_sms>
+    </default>
+</config>

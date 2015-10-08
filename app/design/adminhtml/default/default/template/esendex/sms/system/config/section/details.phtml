@@ -1,0 +1,122 @@
+<?php
+/**
+ * Copyright (C) 2015 Esendex Ltd.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the Esendex Community License v1.0 as published by
+ * the Esendex Ltd.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * Esendex Community Licence v1.0 for more details.
+ *
+ * You should have received a copy of the Esendex Community Licence v1.0
+ * along with this program.  If not, see <http://www.esendex.com/esendexcommunitylicence/>
+ */
+
+/** @var Esendex_Sms_Block_Adminhtml_System_Config_Section_Details $this */
+
+$helper = Mage::helper('esendex_sms');
+?>
+
+<div class="esendex_container">
+    <div class="cf">
+        <img class="esendex_logo" src="<?= $this->getSkinUrl('images/esendex/esendex-logo.png') ?>" alt="Esendex" height="56" width="265" />
+
+        <?php if (!$this->accountDetailsNotFilledIn() && !$this->hasAccountError()): ?>
+        <div class="account-details-data">
+            <p><a href="https://www.esendex.com/home"><span class="bold-text"><?= $this->getAccountReference() ?></span></a></p>
+            <p><span class="bold-text"><?= $this->getAccountType(); ?></span></p>
+            <p><a href="https://www.esendex.com/redirect?i=ecommerce&ls=magento&sc=connectstore&sd=v1">
+                    <span class="bold-text"><?= $this->getRemainingMessages(); ?></span>
+                </a>
+            </p>
+
+        </div>
+        <div class="account-details-labels">
+            <p><?= $helper->__('Account Number') ?></p>
+            <p><?= $helper->__('Account Type') ?></p>
+            <p><?= $helper->__('Credits Remaining') ?></p>
+        </div>
+        <?php endif; ?>
+
+    </div>
+
+
+    <?php if ($this->accountDetailsNotFilledIn()) : ?>
+        <p>
+            <?= $helper->__("You'll need to enter your Esendex Account details below to send SMS notifications"); ?>
+            <br>
+            <?=
+            $helper->__(
+                "Don't have an Esendex Account? %sCreate a FREE TRIAL account%s - we'll even give you 25 FREE SMS to get you started!",
+                '<a target="_blank" href="' . $this->getSignUpUrl() . '">',
+                '</a>'
+            );
+            ?>
+            <br>
+        </p>
+    <?php elseif ($this->hasAccountError()) : ?>
+        <p><?= $helper->__('Your Esendex Account details were not recognised. Your account may have expired or the details are incorrect'); ?></p>
+        <p><?= $helper->__('Please double check your account details or contact our support team at <a href="mailto:support@esendex.com">support@esendex.com</a>'); ?></p>
+    <?php else : ?>
+        <div class="cf">
+            <a target="_blank" href="<?= $this->getBuyMessagesLink() ?>">
+                <div class="cta-box">
+                    <table height="64px" width="100%" border="0" cellspacing="0" cellpadding="10px">
+                        <tr valign="middle">
+                            <td valign="middle"><img src="<?= $this->getSkinUrl('images/esendex/buy.png') ?>" width="74" height="61" alt="<?= $helper->__('Buy message credits') ?>"></td>
+                            <td width="10%"></td>
+                            <td valign="middle"><?= $helper->__('Buy message credits') ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+            <a target="_blank" href="<?= $this->getSmsMarketingLink() ?>">
+                <div class="cta-box">
+                    <table height="64px" width="100%" border="0" cellspacing="0" cellpadding="10px">
+                        <tr valign="middle">
+                            <td valign="middle"><img src="<?= $this->getSkinUrl('images/esendex/bulksend.png') ?>" width="60" height="56" alt="<?= $helper->__('SMS marketing') ?>"></td>
+                            <td width="10%"></td>
+                            <td valign="middle"><?= $helper->__('SMS marketing') ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+            <a target="_blank" href="<?= $this->getAutoRespondersLink() ?>">
+                <div class="cta-box cta-box">
+                    <table height="64px" width="100%" border="0" cellspacing="0" cellpadding="10px">
+                        <tr valign="middle">
+                            <td valign="middle"><img src="<?= $this->getSkinUrl('images/esendex/autoresponders.png') ?>" width="61" height="50" alt="<?= $helper->__('SMS auto responses') ?>"></td>
+                            <td width="10%"></td>
+                            <td valign="middle"><?= $helper->__('SMS auto responses') ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+            <a target="_blank" href="<?= $this->getSentMessagesLink() ?>">
+                <div class="cta-box cta-box">
+                    <table height="64px" width="100%" border="0" cellspacing="0" cellpadding="10px">
+                        <tr valign="middle">
+                            <td valign="middle"><img src="<?= $this->getSkinUrl('images/esendex/downloadsentitems.png') ?>" width="58" height="54" alt="<?= $helper->__('Download sent items') ?>"></td>
+                            <td width="10%"></td>
+                            <td valign="middle"><?= $helper->__('Download sent items') ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+            <a target="_blank" href="<?= $this->getSupportLink() ?>">
+                <div class="cta-box cta-box-last">
+                    <table height="64px" width="100%" border="0" cellspacing="0" cellpadding="10px">
+                        <tr valign="middle">
+                            <td valign="middle"><img src="<?= $this->getSkinUrl('images/esendex/help.png') ?>" width="52" height="52" alt="<?= $helper->__('Help & Support') ?>"></td>
+                            <td width="10%"></td>
+                            <td valign="middle"><?= $helper->__('Help & Support') ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        </div>
+    <?php endif; ?>
+</div>

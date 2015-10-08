@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<!--
+Copyright (C) 2015 Esendex Ltd.
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the Esendex Community License v1.0 as published by
+   the Esendex Ltd.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   Esendex Community Licence v1.0 for more details.
+
+   You should have received a copy of the Esendex Community Licence v1.0
+   along with this program.  If not, see <http://www.esendex.com/esendexcommunitylicence/>
+-->
+
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <esendex_sms>
+                                        <title>Esendex SMS Section</title>
+                                    </esendex_sms>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <esendex translate="title" module="esendex_sms">
+                        <title>Sms</title>
+                        <sort_order>1000</sort_order>
+                    </esendex>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <esendex translate="title" module="esendex_sms">
+            <title>SMS</title>
+            <sort_order>100</sort_order>
+            <children>
+                <create translate="title" module="esendex_sms">
+                    <title>Add New Notification</title>
+                    <action>adminhtml/sms_trigger/new</action>
+                </create>
+                <manage_notifications translate="title" module="esendex_sms">
+                    <title>Manage Existing Notifications</title>
+                    <action>adminhtml/sms_trigger/index</action>
+                </manage_notifications>
+                <mobile_sales_report translate="title" module="esendex_sms">
+                    <title>Mobile Sales Report</title>
+                    <action>adminhtml/sms_mobileSalesReport/index</action>
+                </mobile_sales_report>
+                <sent translate="title" module="esendex_sms">
+                    <title>View Sent Messages</title>
+                    <action>adminhtml/sms_messages</action>
+                </sent>
+                <settings translate="title" module="esendex_sms">
+                    <title>Settings</title>
+                    <action>adminhtml/system_config/edit/section/esendex_sms</action>
+                </settings>
+            </children>
+        </esendex>
+    </menu>
+</config>

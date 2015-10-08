@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!--
+Copyright (C) 2015 Esendex Ltd.
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the Esendex Community License v1.0 as published by
+   the Esendex Ltd.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   Esendex Community Licence v1.0 for more details.
+
+   You should have received a copy of the Esendex Community Licence v1.0
+   along with this program.  If not, see <http://www.esendex.com/esendexcommunitylicence/>
+-->
+
+<jstranslator>
+    <reset_message_button translate="message" module="esendex_sms">
+        <message>Reset to Default Message</message>
+    </reset_message_button>
+    <message_validation_chars translate="message" module="esendex_sms">>
+        <message>characters</message>
+    </message_validation_chars>
+    <message_validation_parts translate="message" module="esendex_sms">>
+        <message>SMS parts</message>
+    </message_validation_parts>
+    <sender_validation translate="message" module="esendex_sms">
+        <message>The Sender ID must be between 1 and 11 characters when it contains letters, numbers, spaces and special characters (* $ ? ! ” # % <![CDATA[&]]> _ - , . @ ' +), or between 5 and 20 when it contains just numbers.</message>
+    </sender_validation>
+    <message_count_validation translate="message" module="esendex_sms">
+        <message>Message must be between 1 and 612 characters</message>
+    </message_count_validation>
+    <variables_validation translate="message" module="esendex_sms">
+        <message>Message contains variables which are not available</message>
+    </variables_validation>
+</jstranslator>

@@ -1,0 +1,62 @@
+{
+    "name": "esendex/sms",
+    "description": "Esendex SMS Magento Module and SMS Events Module",
+    "type": "magento-module",
+    "require": {
+        "esendex/sdk": "~1.0.6",
+        "php": ">=5.3",
+        "psr/log": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.2",
+        "squizlabs/php_codesniffer": "~1.5",
+        "magento/magento": "1.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aydin Hassan",
+            "email": "aydin@hotmail.co.uk"
+        },
+        {
+            "name": "Michael Woodward",
+            "email": "michael@wearejh.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "magento/magento",
+                "version": "1.8",
+                "source": {
+                    "url": "http://svn.magentocommerce.com/source",
+                    "type": "svn",
+                    "reference": "branches/1.8"
+                },
+                "classmap": ["app/code/local", "app/code/community", "app/code/core", "lib"]
+            }
+        }
+    ],
+    "autoload-dev": {
+        "classmap": ["app/", "test", "vendor/magento/magento/app", "vendor/magento/magento/lib"]
+    },
+    "extra": {
+        "map": [
+            ["app/code/community/Esendex/Sms",                          "app/code/community/Esendex/Sms"],
+            ["app/etc/modules/Esendex_Sms.xml",                         "app/etc/modules/Esendex_Sms.xml"],
+            ["app/design/adminhtml/default/default/layout/esendex/*",   "app/design/adminhtml/default/default/layout/esendex/"],
+            ["app/design/adminhtml/default/default/template/esendex/*", "app/design/adminhtml/default/default/template/esendex/"],
+            ["skin/adminhtml/default/default/js/esendex/sms/*",         "skin/adminhtml/default/default/js/esendex/sms/"],
+            ["skin/adminhtml/default/default/css/esendex/*",            "skin/adminhtml/default/default/css/esendex/"],
+            ["skin/adminhtml/default/default/images/esendex/*",         "skin/adminhtml/default/default/images/esendex/"],
+            ["app/locale/en_US/*",                                      "app/locale/en_US/"],
+            ["app/locale/en_GB/*",                                      "app/locale/en_GB/"],
+            ["app/locale/de_DE/*",                                      "app/locale/de_DE/"],
+            ["app/locale/fr_FR/*",                                      "app/locale/fr_FR/"],
+            ["app/locale/es_ES/*",                                      "app/locale/es_ES/"],
+            ["app/code/community/Esendex/Events",                       "app/code/community/Esendex/Events"],
+            ["app/etc/modules/Esendex_Events.xml",                      "app/etc/modules/Esendex_Events.xml"]
+        ]
+    }
+}

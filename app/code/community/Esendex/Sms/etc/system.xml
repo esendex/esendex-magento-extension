@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+
+<!--
+Copyright (C) 2015 Esendex Ltd.
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the Esendex Community License v1.0 as published by
+   the Esendex Ltd.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   Esendex Community Licence v1.0 for more details.
+
+   You should have received a copy of the Esendex Community Licence v1.0
+   along with this program.  If not, see <http://www.esendex.com/esendexcommunitylicence/>
+-->
+
+<config>
+    <tabs>
+        <esendex translate="label" module="esendex_sms">
+            <label>Esendex</label>
+            <sort_order>1000</sort_order>
+        </esendex>
+    </tabs>
+    <sections>
+        <esendex_sms translate="label" module="esendex_sms">
+            <label>Esendex Module Configuration</label>
+            <tab>esendex</tab>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>0</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <details module="esendex_sms">
+                    <frontend_model>esendex_sms/adminhtml_system_config_section_details</frontend_model>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <sort_order>0</sort_order>
+                </details>
+                <sms translate="label" module="esendex_sms">
+                    <label>SMS</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <account_reference translate="label">
+                            <label>Esendex Account Reference</label>
+                            <comment>Your Esendex account reference number e.g. EX0012345</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </account_reference>
+                        <email translate="label">
+                            <label>Esendex Username</label>
+                            <comment>Your Esendex username, typically your email address e.g. joe.bloggs@company.com</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </email>
+                        <password translate="label">
+                            <label>Esendex Password</label>
+                            <comment>Your Esendex password</comment>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </password>
+                        <warn_me translate="label">
+                            <label>Warn me when messages go below</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <validate>validate-number</validate>
+                        </warn_me>
+                        <debug_mode translate="label">
+                            <label>Debug Mode</label>
+                            <comment>Toggle debug mode. Useful for logging API calls and other important information</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </debug_mode>
+                        <send_sms translate="label">
+                            <label>Enable SMS Sending</label>
+                            <comment>Select 'No' to disable SMS sending</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </send_sms>
+                    </fields>
+                </sms>
+            </groups>
+        </esendex_sms>
+    </sections>
+</config>

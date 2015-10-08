@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<!--
+Copyright (C) 2015 Esendex Ltd.
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the Esendex Community License v1.0 as published by
+   the Esendex Ltd.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   Esendex Community Licence v1.0 for more details.
+
+   You should have received a copy of the Esendex Community Licence v1.0
+   along with this program.  If not, see <http://www.esendex.com/esendexcommunitylicence/>
+-->
+
+<layout>
+    <adminhtml_sms_trigger_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>esendex</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="esendex_sms/adminhtml_trigger" name="trigger" />
+        </reference>
+    </adminhtml_sms_trigger_index>
+
+    <adminhtml_sms_trigger_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="esendex_sms/adminhtml_trigger_grid" name="trigger_grid"/>
+        </block>
+    </adminhtml_sms_trigger_grid>
+
+    <!-- Trigger add/edit action -->
+    <adminhtml_sms_trigger_edit>
+        <update handle="editor"/>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><script>js/esendex/sms/edit.js</script></action>
+        </reference>
+
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><css>css/esendex/sms.css</css></action>
+        </reference>
+
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>esendex/create</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="esendex_sms/adminhtml_trigger_edit" name="trigger_edit"></block>
+        </reference>
+    </adminhtml_sms_trigger_edit>
+
+    <adminhtml_sms_mobilesalesreport_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>esendex</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="esendex_sms/adminhtml_mobileSalesReport" name="mobileSalesReport" />
+        </reference>
+    </adminhtml_sms_mobilesalesreport_index>
+
+    <adminhtml_sms_mobilesalesreport_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="esendex_sms/adminhtml_mobileSalesReport_grid" name="mobileSalesReport_grid"/>
+        </block>
+    </adminhtml_sms_mobilesalesreport_grid>
+
+    <adminhtml_sms_mobilesalesreport_edit>
+        <update handle="editor"/>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><script>js/esendex/sms/edit.js</script></action>
+        </reference>
+
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><css>css/esendex/sms.css</css></action>
+        </reference>
+
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>esendex/create</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="esendex_sms/adminhtml_mobileSalesReport_edit" name="trigger_edit"></block>
+        </reference>
+    </adminhtml_sms_mobilesalesreport_edit>
+
+    <!-- Sent Messages -->
+    <adminhtml_sms_messages_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>esendex/sent</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="messages_info" template="esendex/widget/messages/info.phtml"/>
+            <block type="esendex_sms/adminhtml_messages" name="esendex_messages" />
+        </reference>
+    </adminhtml_sms_messages_index>
+
+    <adminhtml_sms_messages_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="esendex_sms/adminhtml_messages_grid" name="messages_grid"/>
+        </block>
+    </adminhtml_sms_messages_grid>
+
+    <!-- System Configuration Block -->
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><css>css/esendex/system.css</css></action>
+        </reference>
+    </adminhtml_system_config_edit>
+
+    <default>
+        <reference name="notifications">
+            <block type="esendex_sms/adminhtml_accountNotifications"
+                   name="esendex_sms_account_notifications"
+                   template="esendex/sms/notifications.phtml">
+            </block>
+        </reference>
+    </default>
+</layout>

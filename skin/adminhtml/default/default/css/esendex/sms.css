@@ -1,0 +1,32 @@
+#available-variables-container {
+    height: 160px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #d6d6d6;
+    padding-left: 10px;
+    width: 260px;
+}
+
+.hidden {
+    display: none;
+}
+
+.validation-advice {
+    clear: both;
+    min-height: 15px;
+    margin: 3px 0 0 9px;
+    background: url(../../images/validation_advice_bg.gif) no-repeat 2px 1px;
+    margin-left: 0px;
+    font-size: .95em;
+    font-weight: bold;
+    line-height: 1.25em;
+    width: 265px;
+}
+
+#reset-template {
+    margin-bottom: 8px;
+}
+
+#variable-help-link {
+    margin-top: 6px;
+}
